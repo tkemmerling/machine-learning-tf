@@ -30,6 +30,10 @@ RUN pip install -U scikit-learn
 RUN pip install -U sagemaker
 RUN pip install -U xgboost
 RUN pip install -U dnsdb
+RUN pip install -U jupyterlab
+RUN curl -sL https://deb.nodesource.com/setup_13.x | bash -
+RUN apt-get install -y nodejs
+
 RUN pip install jupyter_http_over_ws -U
 RUN jupyter serverextension enable --py jupyter_http_over_ws
 RUN pip install ipywidgets
@@ -47,6 +51,7 @@ EXPOSE 8888
 RUN python -m ipykernel.kernelspec
 
 CMD ["bash", "-c", "source /etc/bash.bashrc && jupyter lab --notebook-dir=/opt/app --ip 0.0.0.0 --no-browser --allow-root"]
+
 
 
 
