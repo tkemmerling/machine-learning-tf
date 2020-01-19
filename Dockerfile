@@ -30,17 +30,23 @@ RUN pip install -U scikit-learn
 RUN pip install -U sagemaker
 RUN pip install -U xgboost
 RUN pip install -U dnsdb
-
 RUN pip install jupyter_http_over_ws -U
 RUN jupyter serverextension enable --py jupyter_http_over_ws
+RUN pip install ipywidgets
+RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
+RUN jupyter labextension install @ijmbarr/jupyterlab_spellchecker
+RUN jupyter labextension install @jupyterlab/toc
+RUN jupyter labextension install @aquirdturtle/collapsible_headings
+RUN jupyter labextension install @jupyterlab/google-drive
+RUN pip install jupyterlab_sql
+RUN jupyter serverextension enable jupyterlab_sql --py --sys-prefix
+RUN jupyter lab build
 
 EXPOSE 8888
 
 RUN python -m ipykernel.kernelspec
 
-
-
-CMD ["bash", "-c", "source /etc/bash.bashrc && jupyter notebook --notebook-dir=/opt/app --ip 0.0.0.0 --no-browser --allow-root"]
+CMD ["bash", "-c", "source /etc/bash.bashrc && jupyter lab --notebook-dir=/opt/app --ip 0.0.0.0 --no-browser --allow-root"]
 
 
 
