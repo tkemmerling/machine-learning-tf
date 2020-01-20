@@ -19,6 +19,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 WORKDIR /opt/app
 
 RUN pip install -U pip
+RUN pip install -U numpy
+RUN pip install -U pandas
 RUN pip install -U matplotlib
 RUN pip install -U scikit-learn
 RUN pip install -U scapy
