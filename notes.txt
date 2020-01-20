@@ -1,0 +1,4 @@
+CMD ["bash", "-c", "source /etc/bash.bashrc && jupyter lab --notebook-dir=/opt/app --ip 0.0.0.0 --no-browser --allow-root"]
+
+ADD processing_script.py /
+ENTRYPOINT ["python", "/processing_script.py"]

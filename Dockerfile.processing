@@ -1,0 +1,6 @@
+FROM tkemmerling/machine-learning-tf:latest
+
+ENTRYPOINT ["python"]
+
+
+
