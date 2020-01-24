@@ -12,8 +12,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     pandoc \
     texlive-full \
     inkscape \
+    python-pydot \
+    python-pydot-ng \
+    graphviz \
     wireshark \
+    whois \
     wget \
+    git \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /opt/app
@@ -33,6 +38,10 @@ RUN pip install -U sagemaker
 RUN pip install -U xgboost
 RUN pip install -U dnsdb
 RUN pip install -U jupyterlab
+RUN pip install -U s3fs
+RUN pip install -U pydot
+RUN pip install -U ConfigParser
+
 RUN curl -sL https://deb.nodesource.com/setup_13.x | bash -
 RUN apt-get install -y nodejs
 
@@ -48,11 +57,17 @@ RUN pip install jupyterlab_sql
 RUN jupyter serverextension enable jupyterlab_sql --py --sys-prefix
 RUN jupyter lab build
 
+RUN pip install -U tldextract
+
 EXPOSE 8888
 
 RUN python -m ipykernel.kernelspec
 
 CMD ["bash", "-c", "source /etc/bash.bashrc && jupyter lab --notebook-dir=/opt/app --ip 0.0.0.0 --no-browser --allow-root"]
+
+
+
+
 
 
 
