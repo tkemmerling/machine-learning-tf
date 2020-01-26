@@ -31,14 +31,18 @@ RUN pip install -U -r requirements.txt
 
 RUN jupyter serverextension enable --py jupyter_http_over_ws
 RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
+
 RUN jupyter labextension install @ijmbarr/jupyterlab_spellchecker
 RUN jupyter labextension install @jupyterlab/toc
 RUN jupyter labextension install @aquirdturtle/collapsible_headings
 RUN jupyter labextension install @jupyterlab/google-drive
 RUN jupyter serverextension enable jupyterlab_sql --py --sys-prefix
 RUN jupyter lab build
+
 RUN python -m ipykernel.kernelspec
+
 EXPOSE 8888
+
 CMD ["bash", "-c", "source /etc/bash.bashrc && jupyter lab --notebook-dir=/opt/app --ip 0.0.0.0 --no-browser --allow-root"]
 
 
