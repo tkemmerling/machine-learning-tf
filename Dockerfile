@@ -1,4 +1,5 @@
-FROM tensorflow/tensorflow:2.1.0-py3-jupyter
+FROM tensorflow/tensorflow:nightly-jupyter
+# FROM tensorflow/tensorflow:2.1.0-py3-jupyter
 
 ENV PATH /usr/local/bin:$PATH
 
