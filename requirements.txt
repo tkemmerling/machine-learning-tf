@@ -11,19 +11,15 @@ scikit-learn
 sagemaker
 xgboost
 jupyterlab
-jupyterlab_sql
-s3fs
 pydot
 ConfigParser
 gitpython
-dnsdb
 shodan
 tldextract
 scapy
 jupyter_http_over_ws
 ipywidgets
 beautifulsoup4
-dnspython
 flake8
 gevent
 grequests
@@ -35,4 +31,4 @@ PyYaml
 requests
 texttable
 retrying
-
+pydig

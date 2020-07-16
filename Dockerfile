@@ -1,5 +1,4 @@
-# FROM tensorflow/tensorflow:nightly-jupyter
-FROM tensorflow/tensorflow:2.1.0-py3-jupyter
+FROM tensorflow/tensorflow:2.2.0-jupyter
 
 ENV PATH /usr/local/bin:$PATH
 
@@ -19,6 +18,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     wireshark \
     whois \
     wget \
+    dnsutils \
     git \
     nodejs \
     npm \
